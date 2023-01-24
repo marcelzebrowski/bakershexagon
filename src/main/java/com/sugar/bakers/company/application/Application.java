@@ -1,7 +1,6 @@
 package com.sugar.bakers.company.application;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication(scanBasePackages = "com.sugar.bakers.company") // it is very important to define the scanBasePackage!
