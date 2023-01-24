@@ -44,6 +44,12 @@ public class CakeService implements CakeOutputPort {
         return cake;
     }
 
+
+    // Dozer
+    // Orika
+    // MapStruct
+    // ModelMapper
+    // JMapper
     private List<Cake> mapToDomain(List<CakeEntity> results) {
         List<Cake> cakeList = new ArrayList<>();
         for(CakeEntity ce : results){
