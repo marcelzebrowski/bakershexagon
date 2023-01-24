@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -22,6 +23,25 @@ public class CakeService implements CakeOutputPort {
     public List<Cake> findAll() {
         List<CakeEntity> results = cakeRepository.findAll();
         return mapToDomain(results);
+    }
+
+    @Override
+    public Optional<Cake> finById(Cake.CakeId cakeId) {
+        Optional<CakeEntity> cakeEntity = cakeRepository.findById(cakeId.getId());
+
+        Cake cake = null;
+        if(cakeEntity.isPresent()){
+            cake = mapToDomain(cakeEntity.get());
+        }
+
+        return Optional.ofNullable(cake);
+
+    }
+
+    private Cake mapToDomain(CakeEntity result){
+        Cake cake = new Cake(result.getName());
+        cake.setCakeId(new Cake.CakeId(result.getId()));
+        return cake;
     }
 
     private List<Cake> mapToDomain(List<CakeEntity> results) {

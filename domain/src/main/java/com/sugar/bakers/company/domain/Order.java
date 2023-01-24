@@ -12,11 +12,24 @@ public class Order {
     @Value
     public static class OrderId{
         Long id;
+
+        Boolean isNull;
+
         public OrderId(Long id){
             this.id = id;
+            this.isNull = Boolean.FALSE;
+        }
+
+        public OrderId(Boolean isNull){
+            this.id = -1L;
+            this.isNull = isNull;
         }
         public Long getId(){
             return id;
+        }
+
+        public Boolean getIsNull(){
+            return isNull;
         }
     }
 

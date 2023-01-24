@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -21,6 +22,25 @@ public class CustomerService implements CustomerOutputPort {
     public List<Customer> findAll() {
         List<CustomerEntity> results = customerRepository.findAll();
         return mapToDomain(results);
+    }
+
+    @Override
+    public Optional<Customer> findById(Customer.CustomerId customerId) {
+
+        Optional<CustomerEntity> customerEntity = customerRepository.findById(customerId.getId());
+        Customer customer = null;
+
+        if(customerEntity.isPresent()){
+            customer = mapToDomain(customerEntity.get());
+        }
+
+        return Optional.ofNullable(customer);
+    }
+
+    private Customer mapToDomain(CustomerEntity result){
+        Customer customer = new Customer(result.getName());
+        customer.setCustomerId(new Customer.CustomerId(result.getId()));
+        return customer;
     }
 
     private List<Customer> mapToDomain(List<CustomerEntity> results) {
