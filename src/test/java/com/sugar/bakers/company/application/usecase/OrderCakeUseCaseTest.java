@@ -52,7 +52,7 @@ public class OrderCakeUseCaseTest {
         when(customerOutputPort.findById(any(Customer.CustomerId.class))).thenReturn(Optional.of(customer));
 
         OrderOutputPort orderOutputPort = mock(OrderOutputPort.class);
-        OrderCakeUseCase orderCakeUseCase = new OrderCakeUseCase(orderOutputPort, cakeOutputPort, customerOutputPort);
+        OrderInputPort orderCakeUseCase = new OrderCakeUseCase(orderOutputPort, cakeOutputPort, customerOutputPort);
         when(orderOutputPort.save(any(Order.class))).thenReturn(new Order.OrderId(1000L));
 
 

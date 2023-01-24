@@ -2,6 +2,7 @@ package com.sugar.bakers.company.application.usecase;
 
 
 import com.sugar.bakers.company.adapter.in.OrderInputPort;
+import com.sugar.bakers.company.adapter.in.OrderReaderPort;
 import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
@@ -11,13 +12,14 @@ import com.sugar.bakers.company.domain.Order;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 @Getter
 @Setter
 @RequiredArgsConstructor
 @Component
-public class OrderCakeUseCase implements OrderInputPort {
+public class OrderCakeUseCase implements OrderInputPort, OrderReaderPort { // solid - dependency inversion principle
 
     @NonNull
     private OrderOutputPort orderOutputPort;
@@ -70,5 +72,10 @@ public class OrderCakeUseCase implements OrderInputPort {
 
     private Optional<Cake> loadCake(Cake.CakeId cakeId){
         return cakeOutputPort.finById(cakeId);
+    }
+
+    @Override
+    public List<Order> findAll() {
+        return orderOutputPort.findAll();
     }
 }
