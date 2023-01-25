@@ -1,4 +1,4 @@
-package com.sugar.bakers.company.application.usecase;
+package com.sugar.bakers.company.usecase;
 
 import com.sugar.bakers.company.adapter.in.OrderEntryNotValidException;
 import com.sugar.bakers.company.adapter.in.OrderInputPort;

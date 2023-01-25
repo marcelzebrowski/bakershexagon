@@ -1,4 +1,4 @@
-package com.sugar.bakers.company.application.usecase;
+package com.sugar.bakers.company.usecase;
 
 
 import com.sugar.bakers.company.adapter.in.OrderInputPort;
@@ -9,9 +9,12 @@ import com.sugar.bakers.company.adapter.out.OrderOutputPort;
 import com.sugar.bakers.company.domain.Cake;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
-import lombok.*;
-import org.springframework.stereotype.Component;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
