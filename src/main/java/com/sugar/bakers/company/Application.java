@@ -1,4 +1,4 @@
-package com.sugar.bakers.company.application;
+package com.sugar.bakers.company;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

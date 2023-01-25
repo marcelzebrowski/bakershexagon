@@ -1,20 +1,21 @@
-package com.sugar.bakers.company.infrastructure.database.entity;
+package com.sugar.bakers.company.secondary.driven.database.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "cake_entity")
-public class CakeEntity {
+@Table(name = "customer_entity")
+public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @NonNull
     @Column
     private String name;
+
 }

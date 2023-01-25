@@ -1,9 +1,9 @@
-package com.sugar.bakers.company.infrastructure.database;
+package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.domain.Cake;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
-import com.sugar.bakers.company.infrastructure.database.entity.OrderEntity;
+import com.sugar.bakers.company.secondary.driven.database.entity.OrderEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;

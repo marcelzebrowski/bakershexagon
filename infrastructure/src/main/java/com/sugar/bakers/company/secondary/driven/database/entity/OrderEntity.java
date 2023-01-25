@@ -1,4 +1,4 @@
-package com.sugar.bakers.company.infrastructure.database.entity;
+package com.sugar.bakers.company.secondary.driven.database.entity;
 
 import lombok.*;
 

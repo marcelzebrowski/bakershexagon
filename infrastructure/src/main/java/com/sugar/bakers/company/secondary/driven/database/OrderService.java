@@ -1,12 +1,12 @@
-package com.sugar.bakers.company.infrastructure.database;
+package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
 import com.sugar.bakers.company.domain.Cake;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
-import com.sugar.bakers.company.infrastructure.database.entity.CakeEntity;
-import com.sugar.bakers.company.infrastructure.database.entity.CustomerEntity;
-import com.sugar.bakers.company.infrastructure.database.entity.OrderEntity;
+import com.sugar.bakers.company.secondary.driven.database.entity.CakeEntity;
+import com.sugar.bakers.company.secondary.driven.database.entity.CustomerEntity;
+import com.sugar.bakers.company.secondary.driven.database.entity.OrderEntity;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

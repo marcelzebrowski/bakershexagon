@@ -1,10 +1,10 @@
-package com.sugar.bakers.company.infrastructure.database;
+package com.sugar.bakers.company.secondary.driven.database;
 
+import com.sugar.bakers.company.Application;
 import com.sugar.bakers.company.domain.Cake;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
-import com.sugar.bakers.company.infrastructure.Application;
-import com.sugar.bakers.company.infrastructure.config.DatabaseJpaConfiguration;
+import com.sugar.bakers.company.secondary.driven.config.DatabaseJpaConfiguration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

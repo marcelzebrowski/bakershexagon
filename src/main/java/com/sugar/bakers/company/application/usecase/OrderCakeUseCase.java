@@ -11,6 +11,7 @@ import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
 import lombok.*;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +19,7 @@ import java.util.Optional;
 @Getter
 @Setter
 @RequiredArgsConstructor
-@Component
+@Service
 public class OrderCakeUseCase implements OrderInputPort, OrderReaderPort { // solid - dependency inversion principle
 
     @NonNull

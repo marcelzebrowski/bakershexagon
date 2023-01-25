@@ -1,8 +1,8 @@
-package com.sugar.bakers.company.infrastructure.database;
+package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.domain.Customer;
-import com.sugar.bakers.company.infrastructure.database.entity.CustomerEntity;
+import com.sugar.bakers.company.secondary.driven.database.entity.CustomerEntity;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
