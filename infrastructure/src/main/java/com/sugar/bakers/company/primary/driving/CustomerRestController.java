@@ -14,8 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerRestController {
 
-    // TODO: Der Aufruf muss eigentlich über den UseCase erfolgen!
-    private CustomerOutputPort customerOutputPort;
+    private CustomerOutputPort customerOutputPort; // Golden Hammer Anti Pattern
 
     @GetMapping("/customer/{id}")
     public Customer readCustomer(@PathVariable Long id){

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CakeRestController {
 
-    private CakeOutputPort cakeOutputPort; // TODO: Der Aufruf muss über den UseCase erfolgen!
+    private CakeOutputPort cakeOutputPort; // Golden Hammer Anti Pattern
 
     @GetMapping("/cake/{id}")
     public Cake readCake(@PathVariable Long id){
