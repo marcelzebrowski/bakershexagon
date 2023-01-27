@@ -13,6 +13,8 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 public class CustomerRestController {
+
+    // TODO: Der Aufruf muss eigentlich über den UseCase erfolgen!
     private CustomerOutputPort customerOutputPort;
 
     @GetMapping("/customer/{id}")
