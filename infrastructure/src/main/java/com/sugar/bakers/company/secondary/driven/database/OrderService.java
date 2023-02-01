@@ -48,7 +48,7 @@ public class OrderService implements OrderOutputPort {
         Customer customer = new Customer(customerEntity.getName());
         customer.setCustomerId(new Customer.CustomerId(customerEntity.getId()));
 
-        Cake cake = new Cake(cakeEntity.getName());
+        Cake cake = new Cake(cakeEntity.getName(), cakeEntity.getPicture());
         cake.setCakeId(new Cake.CakeId(cakeEntity.getId()));
 
         Order order = new Order(cake, customer);

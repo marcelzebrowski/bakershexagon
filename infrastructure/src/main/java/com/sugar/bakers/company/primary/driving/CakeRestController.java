@@ -14,7 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 public class CakeRestController {
 
-    private CakeOutputPort cakeOutputPort; // Golden Hammer Anti Pattern
+    // Homework: Marcel war faul und hat gar nicht eingesehen hier den Golden Hammer zu implementieren.
+    //           Marcel hat aber vergessen, dass die Id noch validiert werden soll und das noch geprüft werden
+    //           muss ob der Kuchen überhaupt lieferbar ist.
+    //           Bade Marcels Faulheit aus!
+    private CakeOutputPort cakeOutputPort; // !!! GEHEN NICHT ÜBER USE CASE !!!
 
     @GetMapping("/cake/{id}")
     public Cake readCake(@PathVariable Long id){

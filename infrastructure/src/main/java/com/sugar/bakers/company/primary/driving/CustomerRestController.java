@@ -14,7 +14,11 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerRestController {
 
-    private CustomerOutputPort customerOutputPort; // Golden Hammer Anti Pattern
+    // Homework: Marcel war faul und hat gar nicht eingesehen hier den Golden Hammer zu implementieren.
+    //           Marcel hat aber vergessen, dass die Id noch validiert werden soll und das der Kunde noch validiert werden
+    //           muss, ob dieser überhaupt aufgrund von nicht bezahlten Rechnungen bestellen darf.
+    //           Bade Marcels Faulheit aus!
+    private CustomerOutputPort customerOutputPort; // !!! GEHEN NICHT ÜBER USE CASE !!!
 
     @GetMapping("/customer/{id}")
     public Customer readCustomer(@PathVariable Long id){

@@ -2,7 +2,7 @@ package com.sugar.bakers.company.usecase;
 
 
 import com.sugar.bakers.company.adapter.in.OrderInputPort;
-import com.sugar.bakers.company.adapter.in.OrderReaderPort;
+import com.sugar.bakers.company.adapter.in.OrderReaderInputPort;
 import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
@@ -23,7 +23,7 @@ import java.util.Optional;
 @Setter
 @RequiredArgsConstructor
 @Service
-public class OrderCakeUseCase implements OrderInputPort, OrderReaderPort { // solid - dependency inversion principle
+public class OrderCakeUseCaseInput implements OrderInputPort, OrderReaderInputPort { // solid - dependency inversion principle
 
     @NonNull
     private OrderOutputPort orderOutputPort;
@@ -34,6 +34,9 @@ public class OrderCakeUseCase implements OrderInputPort, OrderReaderPort { // so
     @NonNull
     private CustomerOutputPort customerOutputPort;
 
+    // CustomerDebitPort customerDebitPort;
+    // CakeAvailabilityPort cakeAvailabilityPort;
+
     @Override
     public Order.OrderId placeOrder(OrderEntry orderEntry){
         // do some nice stuff for this UseCase
@@ -42,25 +45,11 @@ public class OrderCakeUseCase implements OrderInputPort, OrderReaderPort { // so
 
         // do something more ...
 
+        // i.e
+        // customerDebitPort.debitCustomerAccount(cake, customer)
+        // cakeAvailabilityPort.check(cake)
+
         // and more ...
-
-        /*
-            There are only 10 kinds of people in this world: those who know binary and those who don’t.
-
-            “Knock, knock.”
-            “Who’s there?”
-            very long pause….
-            “Java.”
-
-            #include <stfio.h>
-            int main(void){
-                int count;
-                for(count=1; count <= 500; count++){
-                    printf("I will not throw paper airplanes in class.")
-                }
-                return 0;
-            }
-         */
 
         if(cake.isPresent() && customer.isPresent()) {
             Order order = new Order(cake.get(), customer.get());

@@ -39,7 +39,7 @@ public class CakeService implements CakeOutputPort {
     }
 
     private Cake mapToDomain(CakeEntity result){
-        Cake cake = new Cake(result.getName());
+        Cake cake = new Cake(result.getName(),result.getPicture());
         cake.setCakeId(new Cake.CakeId(result.getId()));
         return cake;
     }
@@ -54,8 +54,9 @@ public class CakeService implements CakeOutputPort {
         List<Cake> cakeList = new ArrayList<>();
         for(CakeEntity ce : results){
             String name = ce.getName();
+            String picture = ce.getPicture();
             Long id = ce.getId();
-            Cake cake = new Cake(name);
+            Cake cake = new Cake(name,picture);
             cake.setCakeId(new Cake.CakeId(id));
             cakeList.add(cake);
         }

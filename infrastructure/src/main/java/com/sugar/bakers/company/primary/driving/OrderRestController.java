@@ -2,7 +2,7 @@ package com.sugar.bakers.company.primary.driving;
 
 import com.sugar.bakers.company.adapter.in.OrderEntryNotValidException;
 import com.sugar.bakers.company.adapter.in.OrderInputPort;
-import com.sugar.bakers.company.adapter.in.OrderReaderPort;
+import com.sugar.bakers.company.adapter.in.OrderReaderInputPort;
 import com.sugar.bakers.company.domain.Cake;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
@@ -15,11 +15,11 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderRestController {
     private OrderInputPort orderInputPort;
-    private OrderReaderPort orderReaderPort;
+    private OrderReaderInputPort orderReaderInputPort;
 
     @GetMapping("/orders")
     public List<Order> readAllOrders(){
-        return orderReaderPort.findAll();
+        return orderReaderInputPort.findAll();
     }
 
     @PostMapping("/order/new/{customerId}/{cakeId}")

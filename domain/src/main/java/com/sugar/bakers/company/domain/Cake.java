@@ -17,4 +17,9 @@ public class Cake {
     private CakeId cakeId;
     @NonNull
     private String name;
+
+    @NonNull
+    private String picture;
+
+
 }

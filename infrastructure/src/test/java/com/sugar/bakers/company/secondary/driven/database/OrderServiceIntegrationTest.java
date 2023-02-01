@@ -26,10 +26,10 @@ public class OrderServiceIntegrationTest {
 
     @Test
     public void saveOrderToDatabase() throws InterruptedException {
-        Cake cake = new Cake("Marble Cake");
-        cake.setCakeId(new Cake.CakeId(2000L));
+        Cake cake = new Cake("Marble Cake","marble");
+        cake.setCakeId(new Cake.CakeId(2L));
         Customer customer = new Customer("Marcel");
-        customer.setCustomerId(new Customer.CustomerId(1000L));
+        customer.setCustomerId(new Customer.CustomerId(1L));
         Order order = new Order(cake,customer); // TODO: only ids because orderservice don't need the whole object!!
         orderService.save(order);
     }

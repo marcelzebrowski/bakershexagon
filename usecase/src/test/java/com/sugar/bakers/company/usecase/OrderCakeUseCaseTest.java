@@ -26,7 +26,7 @@ public class OrderCakeUseCaseTest {
         OrderOutputPort orderOutputPort = mock(OrderOutputPort.class);
         CakeOutputPort cakeOutputPort = mock(CakeOutputPort.class);
         CustomerOutputPort customerOutputPort = mock(CustomerOutputPort.class);
-        OrderCakeUseCase orderCakeUseCase = new OrderCakeUseCase(orderOutputPort, cakeOutputPort, customerOutputPort);
+        OrderCakeUseCaseInput orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
 
         Customer.CustomerId customerId = new Customer.CustomerId(47L);
         Cake.CakeId cakeId = new Cake.CakeId(11L);
@@ -39,11 +39,11 @@ public class OrderCakeUseCaseTest {
     @Test
     public void testPlaceOrder() throws OrderEntryNotValidException {
 
-        Cake cake = new Cake("Apple Pie");
-        cake.setCakeId(new Cake.CakeId(1000L));
+        Cake cake = new Cake("Apple Pie","apple");
+        cake.setCakeId(new Cake.CakeId(1L));
 
         Customer customer = new Customer("Marcel");
-        customer.setCustomerId(new Customer.CustomerId(1000L));
+        customer.setCustomerId(new Customer.CustomerId(1L));
 
         CakeOutputPort cakeOutputPort = mock(CakeOutputPort.class);
         CustomerOutputPort customerOutputPort = mock(CustomerOutputPort.class);
@@ -52,8 +52,8 @@ public class OrderCakeUseCaseTest {
         when(customerOutputPort.findById(any(Customer.CustomerId.class))).thenReturn(Optional.of(customer));
 
         OrderOutputPort orderOutputPort = mock(OrderOutputPort.class);
-        OrderInputPort orderCakeUseCase = new OrderCakeUseCase(orderOutputPort, cakeOutputPort, customerOutputPort);
-        when(orderOutputPort.save(any(Order.class))).thenReturn(new Order.OrderId(1000L));
+        OrderInputPort orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
+        when(orderOutputPort.save(any(Order.class))).thenReturn(new Order.OrderId(1L));
 
 
         Customer.CustomerId customerId = new Customer.CustomerId(47L);

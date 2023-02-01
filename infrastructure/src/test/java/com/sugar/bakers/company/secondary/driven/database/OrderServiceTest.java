@@ -21,7 +21,7 @@ public class OrderServiceTest {
         OrderRepository orderRepository = mock(OrderRepository.class);
         when(orderRepository.save(any(OrderEntity.class))).thenReturn(orderEntity);
 
-        Cake cake = new Cake("Test");
+        Cake cake = new Cake("Test","test");
         cake.setCakeId(new Cake.CakeId(1000L));
         Customer customer = new Customer("Marcel");
         customer.setCustomerId(new Customer.CustomerId(1000L));

@@ -17,4 +17,8 @@ public class CakeEntity {
     @NonNull
     @Column
     private String name;
+
+    @NonNull
+    @Column
+    private String picture;
 }
