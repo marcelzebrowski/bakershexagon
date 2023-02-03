@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-// Golden Hammer Example
-public interface CakeReaderPort {
+public interface CakeReaderInportPort {
     List<Cake> findAll();
 
     Optional<Cake> finById(Cake.CakeId cakeId);
