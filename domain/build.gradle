@@ -11,8 +11,19 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
 
+apply plugin: 'maven-publish'
+
+/*only for local test purpose*/
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     implementation 'org.springframework.boot:spring-boot-starter-validation'

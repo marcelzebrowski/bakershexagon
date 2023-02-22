@@ -17,6 +17,9 @@ public class SecurityConfig {
                 .and()
                 .csrf()
                 .disable();
+
+        // for h2 database gui
+        http.headers().frameOptions().disable();
         return http.build();
     }
 }
