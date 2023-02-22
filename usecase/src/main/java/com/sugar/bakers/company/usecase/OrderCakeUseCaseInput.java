@@ -7,6 +7,7 @@ import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
 import lombok.Getter;
@@ -63,7 +64,7 @@ public class OrderCakeUseCaseInput implements OrderInputPort, OrderReaderInputPo
         return customerOutputPort.findById(customerId);
     }
 
-    private Optional<Cake> loadCake(Cake.CakeId cakeId){
+    private Optional<Cake> loadCake(CakeId cakeId){
         return cakeOutputPort.finById(cakeId);
     }
 

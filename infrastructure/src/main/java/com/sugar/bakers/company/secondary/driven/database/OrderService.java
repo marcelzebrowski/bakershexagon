@@ -2,6 +2,7 @@ package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
 import com.sugar.bakers.company.secondary.driven.database.entity.CakeEntity;
@@ -48,8 +49,7 @@ public class OrderService implements OrderOutputPort {
         Customer customer = new Customer(customerEntity.getName());
         customer.setCustomerId(new Customer.CustomerId(customerEntity.getId()));
 
-        Cake cake = new Cake(cakeEntity.getName(), cakeEntity.getPicture());
-        cake.setCakeId(new Cake.CakeId(cakeEntity.getId()));
+        Cake cake = new Cake(new CakeId(cakeEntity.getId()),cakeEntity.getName(), cakeEntity.getPicture(), cakeEntity.getDescription());
 
         Order order = new Order(cake, customer);
         order.setOrderId(new Order.OrderId(oe.getId()));

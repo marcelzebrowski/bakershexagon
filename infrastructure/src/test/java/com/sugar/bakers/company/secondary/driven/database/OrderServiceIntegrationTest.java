@@ -2,6 +2,7 @@ package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.Application;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
 import com.sugar.bakers.company.secondary.driven.config.DatabaseJpaConfiguration;
@@ -26,8 +27,7 @@ public class OrderServiceIntegrationTest {
 
     @Test
     public void saveOrderToDatabase() throws InterruptedException {
-        Cake cake = new Cake("Marble Cake","marble");
-        cake.setCakeId(new Cake.CakeId(2L));
+        Cake cake = new Cake(new CakeId(2L),"Marble Cake","marble", "%-)");
         Customer customer = new Customer("Marcel");
         customer.setCustomerId(new Customer.CustomerId(1L));
         Order order = new Order(cake,customer); // TODO: only ids because orderservice don't need the whole object!!

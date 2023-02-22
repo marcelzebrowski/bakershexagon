@@ -3,6 +3,7 @@ package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.secondary.driven.database.entity.CakeEntity;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +27,7 @@ public class CakeService implements CakeOutputPort {
     }
 
     @Override
-    public Optional<Cake> finById(Cake.CakeId cakeId) {
+    public Optional<Cake> finById(CakeId cakeId) {
         Optional<CakeEntity> cakeEntity = cakeRepository.findById(cakeId.getId());
 
         Cake cake = null;
@@ -39,12 +40,11 @@ public class CakeService implements CakeOutputPort {
     }
 
     private Cake mapToDomain(CakeEntity result){
-        Cake cake = new Cake(result.getName(),result.getPicture());
-        cake.setCakeId(new Cake.CakeId(result.getId()));
+        Cake cake = new Cake(new CakeId(result.getId()),result.getName(),result.getPicture(), result.getDescription());
         return cake;
     }
 
-
+    // You can use something else like ...
     // Dozer
     // Orika
     // MapStruct
@@ -55,9 +55,9 @@ public class CakeService implements CakeOutputPort {
         for(CakeEntity ce : results){
             String name = ce.getName();
             String picture = ce.getPicture();
+            String description = ce.getDescription();
             Long id = ce.getId();
-            Cake cake = new Cake(name,picture);
-            cake.setCakeId(new Cake.CakeId(id));
+            Cake cake = new Cake(new CakeId(id),name,picture, description);
             cakeList.add(cake);
         }
         return cakeList;

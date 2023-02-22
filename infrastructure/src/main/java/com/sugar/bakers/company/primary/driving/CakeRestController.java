@@ -2,6 +2,7 @@ package com.sugar.bakers.company.primary.driving;
 
 import com.sugar.bakers.company.adapter.in.CakeReaderInportPort;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.primary.driving.exception.CakeNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ public class CakeRestController {
 
     @GetMapping("/cake/{id}")
     public Cake readCake(@PathVariable Long id){
-        Cake.CakeId cakeId = new Cake.CakeId(id);
+        CakeId cakeId = new CakeId(id);
         return cakeReaderInportPort.finById(cakeId).orElseThrow(()->new CakeNotFoundException(cakeId));
     }
 

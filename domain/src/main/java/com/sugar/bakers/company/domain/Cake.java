@@ -5,15 +5,10 @@ import lombok.*;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Builder
+@NoArgsConstructor
 public class Cake {
-    @Value
-    public static class CakeId{
-        Long id;
-        public CakeId(Long id){
-            this.id = id;
-        }
-    }
-
+    @NonNull
     private CakeId cakeId;
     @NonNull
     private String name;
@@ -21,5 +16,7 @@ public class Cake {
     @NonNull
     private String picture;
 
+    @NonNull
+    private String description;
 
 }

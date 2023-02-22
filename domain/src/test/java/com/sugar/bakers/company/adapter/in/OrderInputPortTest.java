@@ -1,5 +1,6 @@
 package com.sugar.bakers.company.adapter.in;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.domain.Customer;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ public class OrderInputPortTest {
     @Test
     public void placeOrder() {
         Customer.CustomerId customerId = new Customer.CustomerId(47L);
-        Cake.CakeId cakeId = new Cake.CakeId(11L);
+        CakeId cakeId = new CakeId(11L);
         assertDoesNotThrow(()-> new OrderInputPort.OrderEntry(customerId,cakeId));
     }
 

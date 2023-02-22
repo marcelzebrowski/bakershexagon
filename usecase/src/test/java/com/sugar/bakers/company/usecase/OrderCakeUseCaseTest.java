@@ -6,6 +6,7 @@ import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.Order;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class OrderCakeUseCaseTest {
         OrderCakeUseCaseInput orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
 
         Customer.CustomerId customerId = new Customer.CustomerId(47L);
-        Cake.CakeId cakeId = new Cake.CakeId(11L);
+        CakeId cakeId = new CakeId(11L);
 
         OrderInputPort.OrderEntry orderEntry = new OrderInputPort.OrderEntry(customerId, cakeId);
         Order.OrderId orderId = orderCakeUseCase.placeOrder(orderEntry);
@@ -39,8 +40,7 @@ public class OrderCakeUseCaseTest {
     @Test
     public void testPlaceOrder() throws OrderEntryNotValidException {
 
-        Cake cake = new Cake("Apple Pie","apple");
-        cake.setCakeId(new Cake.CakeId(1L));
+        Cake cake = new Cake(new CakeId(1L),"Apple Pie","apple", "hmm yummi yummi");
 
         Customer customer = new Customer("Marcel");
         customer.setCustomerId(new Customer.CustomerId(1L));
@@ -48,7 +48,7 @@ public class OrderCakeUseCaseTest {
         CakeOutputPort cakeOutputPort = mock(CakeOutputPort.class);
         CustomerOutputPort customerOutputPort = mock(CustomerOutputPort.class);
 
-        when(cakeOutputPort.finById(any(Cake.CakeId.class))).thenReturn(Optional.of(cake));
+        when(cakeOutputPort.finById(any(CakeId.class))).thenReturn(Optional.of(cake));
         when(customerOutputPort.findById(any(Customer.CustomerId.class))).thenReturn(Optional.of(customer));
 
         OrderOutputPort orderOutputPort = mock(OrderOutputPort.class);
@@ -57,7 +57,7 @@ public class OrderCakeUseCaseTest {
 
 
         Customer.CustomerId customerId = new Customer.CustomerId(47L);
-        Cake.CakeId cakeId = new Cake.CakeId(11L);
+        CakeId cakeId = new CakeId(11L);
 
         OrderInputPort.OrderEntry orderEntry = new OrderInputPort.OrderEntry(customerId, cakeId);
         Order.OrderId orderId = orderCakeUseCase.placeOrder(orderEntry);

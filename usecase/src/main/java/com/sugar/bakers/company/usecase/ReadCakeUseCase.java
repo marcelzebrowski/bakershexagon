@@ -3,6 +3,7 @@ package com.sugar.bakers.company.usecase;
 import com.sugar.bakers.company.adapter.in.CakeReaderInportPort;
 import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.domain.Cake;
+import com.sugar.bakers.company.domain.CakeId;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class ReadCakeUseCase implements CakeReaderInportPort {
     }
 
     @Override
-    public Optional<Cake> finById(Cake.CakeId cakeId) {
+    public Optional<Cake> finById(CakeId cakeId) {
         return cakeOutputPort.finById(cakeId);
     }
 }
