@@ -2,9 +2,11 @@ package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.domain.Customer;
+import com.sugar.bakers.company.domain.CustomerId;
 import com.sugar.bakers.company.secondary.driven.database.entity.CustomerEntity;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.config.web.servlet.oauth2.resourceserver.OpaqueTokenDsl;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,9 +27,18 @@ public class CustomerService implements CustomerOutputPort {
     }
 
     @Override
-    public Optional<Customer> findById(Customer.CustomerId customerId) {
-
+    public Optional<Customer> findById(CustomerId customerId) {
         Optional<CustomerEntity> customerEntity = customerRepository.findById(customerId.getId());
+        return extract(customerEntity);
+    }
+
+    @Override
+    public Optional<Customer> findByName(String username) {
+        Optional<CustomerEntity> customerEntity = customerRepository.findByName(username);
+        return extract(customerEntity);
+    }
+
+    private Optional<Customer> extract(Optional<CustomerEntity> customerEntity) {
         Customer customer = null;
 
         if(customerEntity.isPresent()){
@@ -38,8 +49,7 @@ public class CustomerService implements CustomerOutputPort {
     }
 
     private Customer mapToDomain(CustomerEntity result){
-        Customer customer = new Customer(result.getName());
-        customer.setCustomerId(new Customer.CustomerId(result.getId()));
+        Customer customer = new Customer(new CustomerId(result.getId()), result.getName());
         return customer;
     }
 
@@ -48,8 +58,7 @@ public class CustomerService implements CustomerOutputPort {
         for(CustomerEntity ce : results){
             Long id = ce.getId();
             String name = ce.getName();
-            Customer tmp = new Customer(name);
-            tmp.setCustomerId(new Customer.CustomerId(id));
+            Customer tmp = new Customer(new CustomerId(id),name);
             customerList.add(tmp);
         }
         return customerList;

@@ -6,17 +6,8 @@ import lombok.*;
 @Setter
 @RequiredArgsConstructor
 public class Customer {
-    @Value
-    public static class CustomerId{
-        Long id;
-        public CustomerId(Long id){
-            this.id = id;
-        }
-    }
-
+    @NonNull
     private CustomerId customerId;
     @NonNull
     private String name;
-
-
 }

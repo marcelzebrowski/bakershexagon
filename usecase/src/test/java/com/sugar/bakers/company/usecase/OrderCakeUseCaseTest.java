@@ -5,10 +5,7 @@ import com.sugar.bakers.company.adapter.in.OrderInputPort;
 import com.sugar.bakers.company.adapter.out.CakeOutputPort;
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.adapter.out.OrderOutputPort;
-import com.sugar.bakers.company.domain.Cake;
-import com.sugar.bakers.company.domain.CakeId;
-import com.sugar.bakers.company.domain.Customer;
-import com.sugar.bakers.company.domain.Order;
+import com.sugar.bakers.company.domain.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -29,7 +26,7 @@ public class OrderCakeUseCaseTest {
         CustomerOutputPort customerOutputPort = mock(CustomerOutputPort.class);
         OrderCakeUseCaseInput orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
 
-        Customer.CustomerId customerId = new Customer.CustomerId(47L);
+        CustomerId customerId = new CustomerId(47L);
         CakeId cakeId = new CakeId(11L);
 
         OrderInputPort.OrderEntry orderEntry = new OrderInputPort.OrderEntry(customerId, cakeId);
@@ -42,21 +39,20 @@ public class OrderCakeUseCaseTest {
 
         Cake cake = new Cake(new CakeId(1L),"Apple Pie","apple", "hmm yummi yummi");
 
-        Customer customer = new Customer("Marcel");
-        customer.setCustomerId(new Customer.CustomerId(1L));
+        Customer customer = new Customer(new CustomerId(1L),"Marcel");
 
         CakeOutputPort cakeOutputPort = mock(CakeOutputPort.class);
         CustomerOutputPort customerOutputPort = mock(CustomerOutputPort.class);
 
         when(cakeOutputPort.finById(any(CakeId.class))).thenReturn(Optional.of(cake));
-        when(customerOutputPort.findById(any(Customer.CustomerId.class))).thenReturn(Optional.of(customer));
+        when(customerOutputPort.findById(any(CustomerId.class))).thenReturn(Optional.of(customer));
 
         OrderOutputPort orderOutputPort = mock(OrderOutputPort.class);
         OrderInputPort orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
         when(orderOutputPort.save(any(Order.class))).thenReturn(new Order.OrderId(1L));
 
 
-        Customer.CustomerId customerId = new Customer.CustomerId(47L);
+        CustomerId customerId = new CustomerId(47L);
         CakeId cakeId = new CakeId(11L);
 
         OrderInputPort.OrderEntry orderEntry = new OrderInputPort.OrderEntry(customerId, cakeId);

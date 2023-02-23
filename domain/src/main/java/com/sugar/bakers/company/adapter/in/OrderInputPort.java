@@ -1,10 +1,7 @@
 package com.sugar.bakers.company.adapter.in;
 
 
-import com.sugar.bakers.company.domain.Cake;
-import com.sugar.bakers.company.domain.CakeId;
-import com.sugar.bakers.company.domain.Customer;
-import com.sugar.bakers.company.domain.Order;
+import com.sugar.bakers.company.domain.*;
 import lombok.Value;
 
 import javax.validation.*;
@@ -17,11 +14,11 @@ public interface OrderInputPort {
     @Value
     class OrderEntry{
         @NotNull
-        Customer.CustomerId customerId;
+        CustomerId customerId;
         @NotNull
         CakeId cakeId;
 
-        public OrderEntry(Customer.CustomerId customerId, CakeId cakeId) throws OrderEntryNotValidException {
+        public OrderEntry(CustomerId customerId, CakeId cakeId) throws OrderEntryNotValidException {
             this.customerId = customerId;
             this.cakeId = cakeId;
             validate();

@@ -3,6 +3,7 @@ package com.sugar.bakers.company.usecase;
 import com.sugar.bakers.company.adapter.in.CustomerReaderPort;
 import com.sugar.bakers.company.adapter.out.CustomerOutputPort;
 import com.sugar.bakers.company.domain.Customer;
+import com.sugar.bakers.company.domain.CustomerId;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,12 @@ public class ReadCustomerUseCase implements CustomerReaderPort {
     }
 
     @Override
-    public Optional<Customer> findById(Customer.CustomerId customerId) {
+    public Optional<Customer> findById(CustomerId customerId) {
         return customerOutputPort.findById(customerId);
+    }
+
+    @Override
+    public Optional<Customer> findByUsername(String username) {
+        return customerOutputPort.findByName(username);
     }
 }

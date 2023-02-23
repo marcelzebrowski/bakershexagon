@@ -1,10 +1,7 @@
 package com.sugar.bakers.company.secondary.driven.database;
 
 import com.sugar.bakers.company.Application;
-import com.sugar.bakers.company.domain.Cake;
-import com.sugar.bakers.company.domain.CakeId;
-import com.sugar.bakers.company.domain.Customer;
-import com.sugar.bakers.company.domain.Order;
+import com.sugar.bakers.company.domain.*;
 import com.sugar.bakers.company.secondary.driven.config.DatabaseJpaConfiguration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,8 +25,7 @@ public class OrderServiceIntegrationTest {
     @Test
     public void saveOrderToDatabase() throws InterruptedException {
         Cake cake = new Cake(new CakeId(2L),"Marble Cake","marble", "%-)");
-        Customer customer = new Customer("Marcel");
-        customer.setCustomerId(new Customer.CustomerId(1L));
+        Customer customer = new Customer(new CustomerId(1L),"Marcel");
         Order order = new Order(cake,customer); // TODO: only ids because orderservice don't need the whole object!!
         orderService.save(order);
     }

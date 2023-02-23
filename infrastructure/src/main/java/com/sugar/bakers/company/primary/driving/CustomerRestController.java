@@ -2,6 +2,7 @@ package com.sugar.bakers.company.primary.driving;
 
 import com.sugar.bakers.company.adapter.in.CustomerReaderPort;
 import com.sugar.bakers.company.domain.Customer;
+import com.sugar.bakers.company.domain.CustomerId;
 import com.sugar.bakers.company.primary.driving.exception.CustomerNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +19,18 @@ public class CustomerRestController {
 
     @GetMapping("/customer/{id}")
     public Customer readCustomer(@PathVariable Long id){
-        Customer.CustomerId customerId = new Customer.CustomerId(id);
+        CustomerId customerId = new CustomerId(id);
         return customerReaderPort.findById(customerId).orElseThrow(()->new CustomerNotFoundException(customerId));
+    }
+
+    @GetMapping("/customer/name/{username}")
+    public Customer readCustomer(@PathVariable String username){
+        return customerReaderPort.findByUsername(username).orElseThrow(()->new CustomerNotFoundException(username));
     }
     
     @GetMapping("/customers")
     public List<Customer> readAllCustomers(){
         return customerReaderPort.findAll();
     }
+
 }
