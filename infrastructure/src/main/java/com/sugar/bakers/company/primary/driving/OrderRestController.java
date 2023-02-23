@@ -25,7 +25,7 @@ public class OrderRestController {
     }
 
     @PostMapping("/order/new/{customerId}/{cakeId}")
-    public Order.OrderId placeOrder(@PathVariable("customer") Long customerId, @PathVariable("cakeId") Long cakeId) throws OrderEntryNotValidException {
+    public Order.OrderId placeOrder(@PathVariable("customerId") Long customerId, @PathVariable("cakeId") Long cakeId) throws OrderEntryNotValidException {
         CustomerId customer = new CustomerId(customerId);
         CakeId cake = new CakeId(cakeId);
         OrderInputPort.OrderEntry orderEntry = new OrderInputPort.OrderEntry(customer,cake);
