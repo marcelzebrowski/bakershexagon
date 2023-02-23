@@ -6,7 +6,6 @@ import com.sugar.bakers.company.domain.CustomerId;
 import com.sugar.bakers.company.secondary.driven.database.entity.CustomerEntity;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.config.web.servlet.oauth2.resourceserver.OpaqueTokenDsl;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,7 +1,5 @@
 package com.sugar.bakers.company.adapter.in;
-import com.sugar.bakers.company.domain.Cake;
 import com.sugar.bakers.company.domain.CakeId;
-import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.CustomerId;
 import org.junit.jupiter.api.Test;
 

@@ -16,11 +16,6 @@ public class OrderEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    /*
-    @Temporal(TemporalType.TIMESTAMP)
-    @NonNull
-    private Date order;*/
-
     @NonNull
     @ManyToOne
     @JoinColumn(name = "customer_entity_id", nullable = false)

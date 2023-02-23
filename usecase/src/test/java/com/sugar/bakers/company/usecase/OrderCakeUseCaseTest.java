@@ -38,7 +38,6 @@ public class OrderCakeUseCaseTest {
     public void testPlaceOrder() throws OrderEntryNotValidException {
 
         Cake cake = new Cake(new CakeId(1L),"Apple Pie","apple", "hmm yummi yummi");
-
         Customer customer = new Customer(new CustomerId(1L),"Marcel");
 
         CakeOutputPort cakeOutputPort = mock(CakeOutputPort.class);

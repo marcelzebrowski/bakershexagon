@@ -23,7 +23,6 @@ public class OrderService implements OrderOutputPort {
 
     @Override
     public Order.OrderId save(Order order) {
-        log.info("Hello from save" + order.toString());
         OrderEntity result = orderRepository.save(mapToEntity(order));
         Order.OrderId orderId = new Order.OrderId(result.getId());
         return orderId;
