@@ -5,6 +5,8 @@ import lombok.*;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Builder
+@NoArgsConstructor
 public class Customer {
     @NonNull
     private CustomerId customerId;
