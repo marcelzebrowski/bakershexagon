@@ -5,7 +5,6 @@ import com.sugar.bakers.company.adapter.in.OrderInputPort;
 import com.sugar.bakers.company.adapter.in.OrderReaderInputPort;
 
 import com.sugar.bakers.company.domain.CakeId;
-import com.sugar.bakers.company.domain.Customer;
 import com.sugar.bakers.company.domain.CustomerId;
 import com.sugar.bakers.company.domain.Order;
 import lombok.AllArgsConstructor;

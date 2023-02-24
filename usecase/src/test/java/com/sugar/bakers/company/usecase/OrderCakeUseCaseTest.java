@@ -24,12 +24,12 @@ public class OrderCakeUseCaseTest {
         OrderOutputPort orderOutputPort = mock(OrderOutputPort.class);
         CakeOutputPort cakeOutputPort = mock(CakeOutputPort.class);
         CustomerOutputPort customerOutputPort = mock(CustomerOutputPort.class);
-        OrderCakeUseCaseInput orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
+        OrderInputPort orderCakeUseCase = new OrderCakeUseCaseInput(orderOutputPort, cakeOutputPort, customerOutputPort);
 
         CustomerId customerId = new CustomerId(47L);
         CakeId cakeId = new CakeId(11L);
-
         OrderInputPort.OrderEntry orderEntry = new OrderInputPort.OrderEntry(customerId, cakeId);
+
         Order.OrderId orderId = orderCakeUseCase.placeOrder(orderEntry);
         assertTrue(orderId.getIsNull());
     }
