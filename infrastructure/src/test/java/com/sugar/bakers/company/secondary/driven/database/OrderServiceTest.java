@@ -1,16 +1,11 @@
 package com.sugar.bakers.company.secondary.driven.database;
 
-import com.sugar.bakers.company.domain.Cake;
-import com.sugar.bakers.company.domain.CakeId;
-import com.sugar.bakers.company.domain.Customer;
-import com.sugar.bakers.company.domain.Order;
+import com.sugar.bakers.company.domain.*;
 import com.sugar.bakers.company.secondary.driven.database.entity.OrderEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-
-import java.util.Stack;
 
 import static org.mockito.Mockito.*;
 
@@ -25,8 +20,7 @@ public class OrderServiceTest {
         when(orderRepository.save(any(OrderEntity.class))).thenReturn(orderEntity);
 
         Cake cake = new Cake(new CakeId(1000L),"Test","test","Description");
-        Customer customer = new Customer("Marcel");
-        customer.setCustomerId(new Customer.CustomerId(1000L));
+        Customer customer = new Customer(new CustomerId(1000L),"Marcel");
 
         Order order = new Order(cake,customer);
 
